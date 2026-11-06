@@ -1,0 +1,61 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auditoría TI - Detección de Fraude Municipal</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 Sistema Inteligente de Fiscalización - SEACE</h1>
+            <p>Modelado matemático y Machine Learning para detección de fraccionamientos y anomalías (Órdenes &le; 8 UIT)</p>
+        </header>
+
+        <main class="dashboard">
+            <section class="form-section">
+                <h2>Ingresar Datos de la Orden de Compra</h2>
+                <form id="fraud-form">
+                    <div class="form-group">
+                        <label for="monto">Monto de la Orden (Soles):</label>
+                        <input type="number" id="monto" step="0.01" placeholder="Ej. 41150.00" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dias">Días de Proceso / Aprobación:</label>
+                        <input type="number" id="dias" placeholder="Ej. 1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ruc_prov">RUC del Proveedor:</label>
+                        <input type="text" id="ruc_prov" placeholder="Ej. RUC_20999888777" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ruc_muni">RUC de la Entidad Municipal:</label>
+                        <input type="text" id="ruc_muni" placeholder="Ej. MUNI_PROV_PIURA" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Analizar Riesgo Contractual</button>
+                </form>
+            </section>
+
+            <section class="result-section">
+                <h2>Resultado del Análisis Geométrico</h2>
+                <div id="result-card" class="card hidden">
+                    <div class="score-container">
+                        <span class="score-label">Índice de Riesgo:</span>
+                        <div id="score-badge" class="badge">0.00%</div>
+                    </div>
+                    <div class="details-container">
+                        <p><strong>Dictamen Técnico:</strong> <span id="dictamen-text">-</span></p>
+                        <p><strong>Estructura de Red (Centralidad):</strong> <span id="centralidad-text">-</span></p>
+                    </div>
+                </div>
+                <div id="placeholder-text" class="placeholder">
+                    Introduce los datos de una contratación para calcular el score predictivo del Isolation Forest.
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
